@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operator Stack</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,'Helvetica Neue',Arial,sans-serif; background:#fff; color:#1A1A18; line-height:1.7; font-size:16px; -webkit-font-smoothing:antialiased; }
+  .page { max-width:860px; margin:0 auto; padding:0 40px 80px; }
+  @media(max-width:600px){ .page{padding:0 22px 60px;} }
+  .belt-strip { display:flex; height:5px; width:100%; }
+  .belt-strip span { flex:1; }
+  .page-header { padding:52px 0 40px; border-bottom:1px solid #E8E8E4; margin-bottom:48px; }
+  .page-header h1 { font-size:42px; font-weight:700; letter-spacing:-.02em; margin-bottom:10px; line-height:1.15; }
+  .page-header .tagline { font-size:18px; font-style:italic; color:#888884; margin-bottom:6px; }
+  .page-header .origin { font-size:14px; color:#AAAAAA; }
+  .section { margin-bottom:52px; padding-bottom:52px; border-bottom:1px solid #E8E8E4; }
+  .section-label { font-size:10px; font-weight:700; letter-spacing:.20em; text-transform:uppercase; color:#AAAAAA; margin-bottom:18px; }
+  h2 { font-size:26px; font-weight:700; letter-spacing:-.01em; margin-bottom:10px; line-height:1.25; }
+  h3 { font-size:16px; font-weight:600; margin-bottom:5px; margin-top:24px; }
+  p { color:#555550; margin-bottom:14px; font-size:15.5px; line-height:1.75; }
+  ul { list-style:none; margin:10px 0 18px; padding:0; }
+  ul li { color:#555550; font-size:15.5px; padding:5px 0 5px 20px; position:relative; line-height:1.6; }
+  ul li::before { content:'·'; position:absolute; left:6px; color:#AAAAAA; font-size:18px; line-height:1.4; }
+  .cta-link { display:inline-block; margin-top:16px; font-size:14px; font-weight:600; letter-spacing:.04em; color:#1A1A18; text-decoration:none; border-bottom:2px solid #1A1A18; padding-bottom:2px; transition:opacity .2s; }
+  .cta-link:hover { opacity:.5; }
+  .flow-bar { background:#F7F7F4; border-radius:8px; padding:20px 28px; text-align:center; font-size:16px; font-weight:600; color:#1A1A18; margin:20px 0; letter-spacing:.01em; }
+  .module-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:20px 0; }
+  @media(max-width:560px){ .module-grid{grid-template-columns:1fr;} }
+  .module-card { background:#F7F7F4; border:1px solid #E8E8E4; border-radius:7px; padding:16px 18px; }
+  .module-name { font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#1A1A18; margin-bottom:4px; }
+  .module-card p { font-size:13px; color:#555550; margin:0; line-height:1.6; }
+  .price-block { background:#F7F7F4; border:1px solid #E8E8E4; border-radius:8px; padding:24px 28px; margin:20px 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .price-item { text-align:center; }
+  .price-amt { font-size:24px; font-weight:700; color:#1A1A18; }
+  .price-label { font-size:11px; color:#888884; letter-spacing:.10em; text-transform:uppercase; margin-top:3px; }
+  .callout { border-left:3px solid #1A1A18; background:#F7F7F4; padding:18px 22px; border-radius:0 8px 8px 0; margin:24px 0; }
+  .callout p { margin:0; font-style:italic; color:#1A1A18; font-size:15px; }
+  .quote { text-align:center; font-style:italic; font-size:18px; color:#1A1A18; padding:36px 40px; border-top:1px solid #E8E8E4; border-bottom:1px solid #E8E8E4; margin:48px 0 40px; line-height:1.85; }
+  .page-footer { margin-top:48px; padding-top:28px; border-top:1px solid #E8E8E4; text-align:center; }
+  .page-footer p { font-size:11px; color:#AAAAAA; letter-spacing:.10em; text-transform:uppercase; margin-bottom:18px; }
+</style>
+</head>
+<body>
+
+<div class="belt-strip">
+  <span style="background:#DCDCDC"></span><span style="background:#EFC84A"></span>
+  <span style="background:#E07E2A"></span><span style="background:#5FA348"></span>
+  <span style="background:#3E76BB"></span><span style="background:#7A5230"></span>
+  <span style="background:#252525"></span>
+</div>
+
+<div class="page">
+
+  <div class="page-header">
+    <h1>Operator Stack</h1>
+    <p class="tagline">Decision and execution systems for high-level operators.</p>
+    <p class="origin">Infrastructure operator. Operating stack. Modular by design.</p>
+  </div>
+
+  <!-- WHAT IT IS -->
+  <div class="section">
+    <div class="section-label">What It Is</div>
+    <h2>A modular execution system built in Notion.</h2>
+    <p>Operator Stack is a complete decision and execution infrastructure — ten interconnected Notion templates designed to capture signal, force clear decisions, and execute with structure.</p>
+    <p>Each module stands alone. Together they form a complete operating system for how you think, decide, and act.</p>
+    <div class="flow-bar">Signal &nbsp;→&nbsp; Pattern &nbsp;→&nbsp; Decision &nbsp;→&nbsp; Strategy &nbsp;→&nbsp; Execution</div>
+  </div>
+
+  <!-- THE MODULES -->
+  <div class="section">
+    <div class="section-label">The Ten Modules</div>
+    <h2>Each module. One function.</h2>
+    <p>Ten templates. Standalone or interconnected. Each one built around a single operational discipline.</p>
+    <div class="module-grid">
+      <div class="module-card"><div class="module-name">Opportunity</div><p>Capture and qualify incoming signal before it becomes noise.</p></div>
+      <div class="module-card"><div class="module-name">Decision</div><p>Force structured decisions. Remove ambiguity from high-stakes choices.</p></div>
+      <div class="module-card"><div class="module-name">Income</div><p>Track revenue streams. Understand what is working and what is not.</p></div>
+      <div class="module-card"><div class="module-name">Review</div><p>Structured review of outcomes. Learn from results, not just effort.</p></div>
+      <div class="module-card"><div class="module-name">Weekly</div><p>Weekly operating rhythm. One template to run the week with clarity.</p></div>
+      <div class="module-card"><div class="module-name">Strategy</div><p>Hold your strategic position. Prevent drift into reactive execution.</p></div>
+      <div class="module-card"><div class="module-name">Signal</div><p>Track the signals that matter. Filter noise. Surface what is real.</p></div>
+      <div class="module-card"><div class="module-name">Pipeline</div><p>Manage what is in motion. Nothing falls through the gaps.</p></div>
+      <div class="module-card"><div class="module-name">Flow</div><p>Protect high-value time. Structure deep work sessions.</p></div>
+      <div class="module-card"><div class="module-name">Execution</div><p>Turn decisions into actions. Close the loop between thinking and doing.</p></div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="section">
+    <div class="section-label">How It Works</div>
+    <h2>Modular by design. Interconnected by use.</h2>
+    <p>Each template works as a standalone tool. Use one module or use all ten — the architecture supports both.</p>
+    <ul>
+      <li>Built in Notion — works with your existing setup</li>
+      <li>Duplicate as template — immediate access on purchase</li>
+      <li>No setup required — structured and ready to use</li>
+      <li>Modular — add modules as your operation grows</li>
+      <li>Interconnected — designed to reference each other naturally</li>
+    </ul>
+    <h3>Who it is for</h3>
+    <p>Founders, operators, and decision-makers who need structure around how they think, prioritise, and execute — without adding complexity.</p>
+  </div>
+
+  <!-- PRICING -->
+  <div class="section">
+    <div class="section-label">Pricing</div>
+    <h2>Individual modules or the full stack.</h2>
+    <p>Each module is available individually. The full bundle includes all ten at a significant saving.</p>
+    <div class="price-block">
+      <div class="price-item"><div class="price-amt">£99</div><div class="price-label">Per Module</div></div>
+      <div class="price-item"><div class="price-amt">£479</div><div class="price-label">Full Bundle</div></div>
+      <div class="price-item"><div class="price-amt">£217</div><div class="price-label">Bundle Saving</div></div>
+    </div>
+    <a class="cta-link" href="https://opportunity-intelligence.lemonsqueezy.com/">→ Access the Operator Stack</a>
+  </div>
+
+  <!-- ORIGIN -->
+  <div class="section">
+    <div class="section-label">Origin</div>
+    <h2>Built from operational reality.</h2>
+    <p>Operator Stack was not designed theoretically. It was built inside active strategic processes — where decisions carry real consequence and noise is expensive.</p>
+    <p>Each module solves a specific operational problem that emerged from real work: managing signal, forcing decisions, maintaining strategic clarity under pressure.</p>
+    <p>The same framework that underpins the Opportunity Intelligence system — expressed as a practical execution layer.</p>
+    <div class="callout">
+      <p>This is not a productivity system. It is a decision and execution infrastructure for operators who need structure around how they think and act.</p>
+    </div>
+  </div>
+
+  <div class="quote">
+    "Control the process — or the process controls you."
+  </div>
+
+  <div class="page-footer">
+    <p>Part of the Opportunity Intelligence Ecosystem</p>
+    <div class="belt-strip" style="border-radius:3px;overflow:hidden">
+      <span style="background:#DCDCDC"></span><span style="background:#EFC84A"></span>
+      <span style="background:#E07E2A"></span><span style="background:#5FA348"></span>
+      <span style="background:#3E76BB"></span><span style="background:#7A5230"></span>
+      <span style="background:#252525"></span>
+    </div>
+  </div>
+
+</div>
+
+<div class="belt-strip">
+  <span style="background:#DCDCDC"></span><span style="background:#EFC84A"></span>
+  <span style="background:#E07E2A"></span><span style="background:#5FA348"></span>
+  <span style="background:#3E76BB"></span><span style="background:#7A5230"></span>
+  <span style="background:#252525"></span>
+</div>
+
+</body>
+</html>
