@@ -1,157 +1,599 @@
+<!-- v2.1 · 2026-09-28 · live checkout links added · Operator Stack redesign: module explorer, stage map, pricing -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta name="google-site-verification" content="rGVIM4L2ado81qPPl2xziGn8kaQTCndGel5rpg4LOGw" />
+<meta name="google-site-verification" content="rGVIM4L2ado81qPPl2xziGn8kaQTCndGel5rpg4LOGw" />
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Operator Stack</title>
+<meta name="description" content="Operator Stack: ten modular, interconnected Notion templates that run the whole business process, from signal to execution.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system,'Helvetica Neue',Arial,sans-serif; background:#fff; color:#1A1A18; line-height:1.7; font-size:16px; -webkit-font-smoothing:antialiased; }
-  .page { max-width:860px; margin:0 auto; padding:0 40px 80px; }
-  @media(max-width:600px){ .page{padding:0 22px 60px;} }
-  .belt-strip { display:flex; height:5px; width:100%; }
-  .belt-strip span { flex:1; }
-  .page-header { padding:52px 0 40px; border-bottom:1px solid #E8E8E4; margin-bottom:48px; }
-  .page-header h1 { font-size:42px; font-weight:700; letter-spacing:-.02em; margin-bottom:10px; line-height:1.15; }
-  .page-header .tagline { font-size:18px; font-style:italic; color:#888884; margin-bottom:6px; }
-  .page-header .origin { font-size:14px; color:#AAAAAA; }
-  .section { margin-bottom:52px; padding-bottom:52px; border-bottom:1px solid #E8E8E4; }
-  .section-label { font-size:10px; font-weight:700; letter-spacing:.20em; text-transform:uppercase; color:#AAAAAA; margin-bottom:18px; }
-  h2 { font-size:26px; font-weight:700; letter-spacing:-.01em; margin-bottom:10px; line-height:1.25; }
-  h3 { font-size:16px; font-weight:600; margin-bottom:5px; margin-top:24px; }
-  p { color:#555550; margin-bottom:14px; font-size:15.5px; line-height:1.75; }
-  ul { list-style:none; margin:10px 0 18px; padding:0; }
-  ul li { color:#555550; font-size:15.5px; padding:5px 0 5px 20px; position:relative; line-height:1.6; }
-  ul li::before { content:'·'; position:absolute; left:6px; color:#AAAAAA; font-size:18px; line-height:1.4; }
-  .cta-link { display:inline-block; margin-top:16px; font-size:14px; font-weight:600; letter-spacing:.04em; color:#1A1A18; text-decoration:none; border-bottom:2px solid #1A1A18; padding-bottom:2px; transition:opacity .2s; }
-  .cta-link:hover { opacity:.5; }
-  .flow-bar { background:#F7F7F4; border-radius:8px; padding:20px 28px; text-align:center; font-size:16px; font-weight:600; color:#1A1A18; margin:20px 0; letter-spacing:.01em; }
-  .module-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:20px 0; }
-  @media(max-width:560px){ .module-grid{grid-template-columns:1fr;} }
-  .module-card { background:#F7F7F4; border:1px solid #E8E8E4; border-radius:7px; padding:16px 18px; }
-  .module-name { font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#1A1A18; margin-bottom:4px; }
-  .module-card p { font-size:13px; color:#555550; margin:0; line-height:1.6; }
-  .price-block { background:#F7F7F4; border:1px solid #E8E8E4; border-radius:8px; padding:24px 28px; margin:20px 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
-  .price-item { text-align:center; }
-  .price-amt { font-size:24px; font-weight:700; color:#1A1A18; }
-  .price-label { font-size:11px; color:#888884; letter-spacing:.10em; text-transform:uppercase; margin-top:3px; }
-  .callout { border-left:3px solid #1A1A18; background:#F7F7F4; padding:18px 22px; border-radius:0 8px 8px 0; margin:24px 0; }
-  .callout p { margin:0; font-style:italic; color:#1A1A18; font-size:15px; }
-  .quote { text-align:center; font-style:italic; font-size:18px; color:#1A1A18; padding:36px 40px; border-top:1px solid #E8E8E4; border-bottom:1px solid #E8E8E4; margin:48px 0 40px; line-height:1.85; }
-  .page-footer { margin-top:48px; padding-top:28px; border-top:1px solid #E8E8E4; text-align:center; }
-  .page-footer p { font-size:11px; color:#AAAAAA; letter-spacing:.10em; text-transform:uppercase; margin-bottom:18px; }
+  :root {
+    color-scheme: dark;
+    --bg: #0B0F17;
+    --bg-2: #0F1520;
+    --surface: #141B28;
+    --line: #273246;
+    --text: #EEF0F4;
+    --text-2: #BCC3CF;
+    --text-3: #939CAC;
+    --gold: #E9B23F;
+    --signal: #F0B43C;
+    --pattern: #3DD68C;
+    --decision: #4A90FF;
+    --strategy: #F2504A;
+    --execution: #C9B6FF;
+    --paper: #FFFFFF;
+    --paper-ink: #1F1F1D;
+    --paper-ink-2: #5A5A55;
+    --paper-line: #E9E9E6;
+    --paper-soft: #F7F7F5;
+    --display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+    --body: "Barlow", -apple-system, "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+    --notion: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --wrap: 1180px;
+    --gutter: clamp(18px, 4vw, 40px);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--body); font-size: 17.5px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: .01em; line-height: .98; margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding-inline: var(--gutter); }
+  .eyebrow { font-family: var(--mono); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-3); }
+  .lede { font-size: 19.5px; color: var(--text-2); max-width: 36em; }
+  .stripe { display: flex; height: 4px; }
+  .stripe span { flex: 1; }
+  .c-signal { background: var(--signal); } .c-pattern { background: var(--pattern); } .c-decision { background: var(--decision); } .c-strategy { background: var(--strategy); } .c-execution { background: var(--execution); }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 8px; font-family: var(--body); font-weight: 700; font-size: 16px; letter-spacing: .02em; text-decoration: none; border: 2px solid transparent; cursor: pointer; transition: transform .15s ease, background .15s ease, border-color .15s ease; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-gold { background: var(--gold); color: #14100A; }
+  .btn-gold:hover { background: #F2C25E; }
+  .btn-line { border-color: #4A5569; color: var(--text); background: transparent; }
+  .btn-line:hover { border-color: var(--text); }
+
+  .topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(11,15,23,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 64px; }
+  .wordmark { font-family: var(--display); font-weight: 700; font-size: 21px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; }
+  .nav { display: flex; align-items: center; gap: 24px; }
+  .nav a { text-decoration: none; font-weight: 600; font-size: 15px; color: var(--text-2); }
+  .nav a:hover { color: var(--text); }
+  .nav .btn { min-height: 40px; padding: 0 16px; font-size: 14.5px; color: #14100A; }
+  @media (max-width: 760px) { .nav .nav-text { display: none; } }
+
+  /* hero */
+  .hero { overflow: hidden; background: radial-gradient(1000px 520px at 82% 20%, rgba(201,182,255,.12), transparent 60%), radial-gradient(900px 500px at 5% 95%, rgba(233,178,63,.10), transparent 60%), var(--bg); }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 60px); align-items: center; padding-block: clamp(48px, 8vw, 100px) clamp(40px, 6vw, 72px); }
+  .hero h1 { font-size: clamp(56px, 9vw, 116px); margin-top: 16px; }
+  .hero h1 span { display: block; color: var(--gold); font-size: .5em; line-height: 1.05; margin-top: 10px; }
+  .hero .lede { margin-top: 22px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .hero-facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; padding: 0; list-style: none; }
+  .hero-facts li { font-size: 14.5px; font-weight: 600; color: var(--text-2); border: 1px solid var(--line); padding: 5px 12px; border-radius: 999px; }
+  .stack { position: relative; height: clamp(340px, 36vw, 440px); }
+  .stack .win { position: absolute; width: 88%; box-shadow: 0 30px 60px -20px rgba(0,0,0,.8); }
+  .stack .win:nth-child(1) { top: 0; left: 0; transform: rotate(-3deg); opacity: .9; }
+  .stack .win:nth-child(2) { top: 22%; left: 6%; transform: rotate(1deg); }
+  .stack .win:nth-child(3) { top: 46%; left: 12%; transform: rotate(-1deg); }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } .stack { height: 360px; } }
+
+  /* notion-style window */
+  .win { background: var(--paper); color: var(--paper-ink); border-radius: 12px; overflow: hidden; font-family: var(--notion); }
+  .win-bar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; background: var(--paper-soft); border-bottom: 1px solid var(--paper-line); }
+  .win-bar i { width: 10px; height: 10px; border-radius: 50%; background: #DAD9D4; }
+  .win-bar b { margin-left: 8px; font-size: 12px; font-weight: 500; color: var(--paper-ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .win-body { padding: 16px 18px 18px; }
+  .win-title { font-size: 21px; font-weight: 700; letter-spacing: -.01em; line-height: 1.2; }
+  .win-sub { font-size: 12.5px; color: var(--paper-ink-2); margin-top: 4px; }
+  .mini-table { margin-top: 12px; border-top: 1px solid var(--paper-line); font-size: 12px; }
+  .mini-table div { display: grid; grid-template-columns: 1.6fr 1fr .8fr; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--paper-line); white-space: nowrap; overflow: hidden; }
+  .mini-table div:first-child { color: var(--paper-ink-2); }
+  .tag { display: inline-block; padding: 1px 7px; border-radius: 4px; font-size: .92em; line-height: 1.5; white-space: nowrap; }
+  .t-red { background: #FBE4E4; color: #8C2F2B; } .t-yellow { background: #FBF0CF; color: #6E5410; } .t-grey { background: #EDEDEB; color: #45443F; }
+  .t-blue { background: #DCEBFB; color: #1E4F86; } .t-orange { background: #FAE5D3; color: #7A4214; } .t-green { background: #DFF1E4; color: #245B36; } .t-purple { background: #ECE3F8; color: #5B3A8C; }
+
+  /* stage map */
+  .map { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-2); }
+  .map ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); }
+  .map li { padding: 18px 14px 20px; border-left: 1px solid var(--line); display: grid; gap: 8px; align-content: start; }
+  .map li:first-child { border-left: 0; }
+  .map .n { font-family: var(--mono); font-size: 12.5px; color: var(--text-3); }
+  .map .s { font-family: var(--display); font-weight: 700; font-size: clamp(22px, 2.5vw, 30px); text-transform: uppercase; letter-spacing: .04em; line-height: 1; }
+  .map .bar { height: 3px; border-radius: 2px; }
+  .map .mods { font-size: 15px; color: var(--text-2); font-weight: 600; }
+  @media (max-width: 700px) { .map ol { grid-template-columns: 1fr 1fr; } .map li:nth-child(odd) { border-left: 0; } .map li { border-top: 1px solid var(--line); } .map li:nth-child(-n+2) { border-top: 0; } .map li:last-child { grid-column: 1 / -1; } }
+
+  .section { padding-block: clamp(64px, 9vw, 112px); }
+  .section-head { display: grid; gap: 16px; max-width: 780px; margin-bottom: clamp(30px, 5vw, 48px); }
+  .section-head h2 { font-size: clamp(42px, 6vw, 72px); }
+
+  /* explorer */
+  .explorer { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: clamp(18px, 3vw, 32px); align-items: start; }
+  .mod-list { display: grid; gap: 18px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 84px); }
+  .mod-group { display: grid; gap: 6px; }
+  .mod-group-label { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+  .mod-group-label i { width: 18px; height: 3px; border-radius: 2px; }
+  .mod-btn { appearance: none; width: 100%; text-align: left; font-family: var(--body); font-size: 16px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--text-2); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; transition: border-color .15s ease, color .15s ease, background .15s ease; }
+  .mod-btn:hover { color: var(--text); border-color: #3A4459; }
+  .mod-btn[aria-selected="true"] { color: var(--text); border-color: var(--c); background: #182131; box-shadow: inset 4px 0 0 var(--c); }
+  .mod-btn span { font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--text-3); letter-spacing: 0; text-transform: none; }
+  @media (max-width: 900px) {
+    .explorer { grid-template-columns: minmax(0, 1fr); }
+    .mod-list { position: static; display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; }
+    .mod-group { display: flex; gap: 8px; flex: none; }
+    .mod-group-label { display: none; }
+    .mod-btn { width: auto; white-space: nowrap; font-size: 14.5px; padding: 9px 13px; }
+    .mod-btn span { display: none; }
+  }
+  .panel { display: grid; gap: 16px; }
+  .panel-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 14px 24px; }
+  .panel-head .stage-tag { font-family: var(--mono); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+  .panel-head h3 { font-size: clamp(40px, 5vw, 60px); margin-top: 8px; }
+  .panel-head p { color: var(--text-2); margin-top: 8px; max-width: 34em; }
+  .panel-buy { display: grid; gap: 8px; justify-items: end; }
+  .panel-buy .price { font-family: var(--display); font-size: 46px; font-weight: 700; line-height: 1; }
+  @media (max-width: 600px) { .panel-buy { justify-items: start; } }
+  .panel .win-body { padding: clamp(18px, 3vw, 30px); }
+  .panel .win-title { font-size: clamp(24px, 3vw, 32px); }
+  .brand-line { font-size: 14px; color: var(--paper-ink-2); margin-top: 6px; line-height: 1.5; }
+  .how { margin-top: 18px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px 28px; }
+  .how h4 { margin: 0 0 8px; font-size: 16px; font-weight: 700; }
+  .how ol { margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.6; }
+  .how ol li + li { margin-top: 3px; }
+  .how .intro { font-size: 15px; line-height: 1.6; } .how .intro + .intro { margin-top: 8px; }
+  .rule { align-self: start; border-left: 3px solid var(--c); background: var(--paper-soft); padding: 14px 16px; border-radius: 0 8px 8px 0; font-size: 15.5px; font-weight: 600; line-height: 1.5; }
+  @media (max-width: 640px) { .how { grid-template-columns: minmax(0, 1fr); } }
+  .views { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; align-items: center; }
+  .views span { font-size: 13px; color: var(--paper-ink-2); padding: 4px 10px; border-radius: 6px; }
+  .views span:first-child { background: #EFEFED; color: var(--paper-ink); font-weight: 600; }
+  .db-title { font-size: 18px; font-weight: 700; margin-top: 18px; }
+  .db-scroll { overflow-x: auto; margin-top: 8px; border-top: 1px solid var(--paper-line); }
+  .db { border-collapse: collapse; font-size: 13.5px; min-width: 100%; }
+  .db th { font-weight: 500; color: var(--paper-ink-2); text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--paper-line); border-right: 1px solid var(--paper-line); white-space: nowrap; }
+  .db td { padding: 8px 10px; border-bottom: 1px solid var(--paper-line); border-right: 1px solid var(--paper-line); vertical-align: top; min-width: 130px; max-width: 220px; }
+  .db th:last-child, .db td:last-child { border-right: 0; }
+  .db td.num { text-align: right; font-variant-numeric: tabular-nums; min-width: 90px; }
+  .db td.title { font-weight: 600; min-width: 190px; }
+  .db tr.empty td { height: 36px; }
+  .newpage { font-size: 13px; color: #9B9A95; padding: 8px 10px; }
+  .board { display: grid; grid-auto-flow: column; grid-auto-columns: 170px; gap: 10px; overflow-x: auto; margin-top: 10px; padding-bottom: 6px; }
+  .col { background: var(--paper-soft); border-radius: 8px; padding: 8px; display: grid; gap: 8px; align-content: start; }
+  .col-h { font-size: 12.5px; color: var(--paper-ink-2); display: flex; gap: 6px; align-items: center; }
+  .card { background: #fff; border: 1px solid var(--paper-line); border-radius: 6px; padding: 8px 10px; font-size: 13px; font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,.05); }
+  .panel-note { font-size: 14.5px; color: var(--text-3); }
+
+  /* how it works */
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .feature { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: grid; gap: 6px; align-content: start; }
+  .feature b { font-family: var(--display); font-size: 26px; text-transform: uppercase; letter-spacing: .02em; font-weight: 700; }
+  .feature span { color: var(--text-2); font-size: 16px; }
+  .feature.for { grid-column: span 3; display: grid; grid-template-columns: 220px 1fr; gap: 20px; align-items: center; background: linear-gradient(135deg, #1D2536, #121824); }
+  @media (max-width: 860px) { .features { grid-template-columns: 1fr 1fr; } .feature.for { grid-column: 1 / -1; grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 520px) { .features { grid-template-columns: minmax(0, 1fr); } }
+
+  /* pricing */
+  .pricing-sec { background: var(--bg-2); border-top: 1px solid var(--line); }
+  .price-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 16px; align-items: stretch; }
+  .p-card { position: relative; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); padding: clamp(24px, 4vw, 36px); display: flex; flex-direction: column; gap: 14px; text-decoration: none; overflow: hidden; transition: transform .2s ease, border-color .2s ease; }
+  .p-card:hover { transform: translateY(-3px); border-color: #4A5569; }
+  .p-card.full { background: linear-gradient(135deg, #1D2536 0%, #121824 60%); border-color: #3A4459; }
+  .p-card.full:hover { border-color: var(--gold); }
+  .p-card .stripe { position: absolute; left: 0; right: 0; top: 0; height: 5px; }
+  .p-tag { align-self: flex-start; font-family: var(--mono); font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; padding: 5px 10px; border-radius: 4px; background: rgba(255,255,255,.06); color: var(--text-2); }
+  .p-card.full .p-tag { background: var(--gold); color: #14100A; }
+  .p-card h3 { font-size: clamp(34px, 4vw, 48px); }
+  .p-price { font-family: var(--display); font-weight: 700; font-size: clamp(60px, 7vw, 88px); line-height: .9; font-variant-numeric: tabular-nums; }
+  .p-price small { font-family: var(--body); font-size: 16px; font-weight: 600; color: var(--text-3); margin-left: 6px; }
+  .p-meta { display: flex; flex-wrap: wrap; gap: 6px 20px; color: var(--text-3); font-size: 16px; }
+  .p-meta b { color: var(--gold); }
+  .p-card p { color: var(--text-2); }
+  .p-mods { display: flex; flex-wrap: wrap; gap: 6px; }
+  .p-mods span { font-size: 13.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 5px 10px; border-radius: 6px; background: rgba(255,255,255,.05); border: 1px solid var(--line); display: inline-flex; gap: 7px; align-items: center; }
+  .p-mods i { width: 8px; height: 8px; border-radius: 50%; }
+  .p-card .btn { margin-top: auto; align-self: flex-start; }
+  .p-card.single .btn { align-self: stretch; }
+  .checkout-note { margin-top: 22px; color: var(--text-3); font-size: 15px; display: flex; flex-wrap: wrap; gap: 8px 26px; }
+  @media (max-width: 820px) { .price-grid { grid-template-columns: minmax(0, 1fr); } }
+
+  /* origin + close */
+  .origin { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); }
+  .origin h2 { font-size: clamp(40px, 5vw, 60px); margin-top: 14px; }
+  .origin p { color: var(--text-2); }
+  .origin p + p { margin-top: 14px; }
+  .origin .callout { margin-top: 22px; border-left: 3px solid var(--gold); padding: 4px 0 4px 18px; color: var(--text); font-weight: 600; font-size: 18.5px; line-height: 1.5; }
+  @media (max-width: 760px) { .origin { grid-template-columns: minmax(0, 1fr); } }
+  .quote { text-align: center; padding-block: clamp(64px, 9vw, 104px); display: grid; gap: 26px; justify-items: center; border-top: 1px solid var(--line); }
+  .quote blockquote { margin: 0; font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: clamp(40px, 6.4vw, 80px); line-height: .98; max-width: 15em; text-wrap: balance; }
+  .quote blockquote span { color: var(--gold); }
+  footer { border-top: 1px solid var(--line); padding-block: 30px 40px; }
+  .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 28px; color: var(--text-3); font-size: 15px; }
+  .foot nav { display: flex; flex-wrap: wrap; gap: 10px 24px; }
+  .foot a { text-decoration: none; color: var(--text-2); font-weight: 600; }
+  .foot a:hover { color: var(--text); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
 </style>
 </head>
 <body>
 
-<div class="belt-strip">
-  <span style="background:#DCDCDC"></span><span style="background:#EFC84A"></span>
-  <span style="background:#E07E2A"></span><span style="background:#5FA348"></span>
-  <span style="background:#3E76BB"></span><span style="background:#7A5230"></span>
-  <span style="background:#252525"></span>
-</div>
-
-<div class="page">
-
-  <div class="page-header">
-    <h1>Operator Stack</h1>
-    <p class="tagline">Decision and execution systems for high-level operators.</p>
-    <p class="origin">Infrastructure operator. Operating stack. Modular by design.</p>
+<header class="topbar">
+  <div class="stripe" aria-hidden="true"><span class="c-signal"></span><span class="c-pattern"></span><span class="c-decision"></span><span class="c-strategy"></span><span class="c-execution"></span></div>
+  <div class="wrap topbar-inner">
+    <a class="wordmark" href="#top">Operator Stack</a>
+    <nav class="nav" aria-label="Page">
+      <a class="nav-text" href="#modules">Modules</a>
+      <a class="nav-text" href="#how">How it works</a>
+      <a class="nav-text" href="#pricing">Pricing</a>
+      <a class="btn btn-gold" href="#pricing">Get the full stack</a>
+    </nav>
   </div>
+</header>
 
-  <!-- WHAT IT IS -->
-  <div class="section">
-    <div class="section-label">What It Is</div>
-    <h2>A modular execution system built in Notion.</h2>
-    <p>Operator Stack is a complete decision and execution infrastructure — ten interconnected Notion templates designed to capture signal, force clear decisions, and execute with structure.</p>
-    <p>Each module stands alone. Together they form a complete operating system for how you think, decide, and act.</p>
-    <div class="flow-bar">Signal &nbsp;→&nbsp; Pattern &nbsp;→&nbsp; Decision &nbsp;→&nbsp; Strategy &nbsp;→&nbsp; Execution</div>
-  </div>
+<main id="top">
 
-  <!-- THE MODULES -->
-  <div class="section">
-    <div class="section-label">The Ten Modules</div>
-    <h2>Each module. One function.</h2>
-    <p>Ten templates. Standalone or interconnected. Each one built around a single operational discipline.</p>
-    <div class="module-grid">
-      <div class="module-card"><div class="module-name">Opportunity</div><p>Capture and qualify incoming signal before it becomes noise.</p></div>
-      <div class="module-card"><div class="module-name">Decision</div><p>Force structured decisions. Remove ambiguity from high-stakes choices.</p></div>
-      <div class="module-card"><div class="module-name">Income</div><p>Track revenue streams. Understand what is working and what is not.</p></div>
-      <div class="module-card"><div class="module-name">Review</div><p>Structured review of outcomes. Learn from results, not just effort.</p></div>
-      <div class="module-card"><div class="module-name">Weekly</div><p>Weekly operating rhythm. One template to run the week with clarity.</p></div>
-      <div class="module-card"><div class="module-name">Strategy</div><p>Hold your strategic position. Prevent drift into reactive execution.</p></div>
-      <div class="module-card"><div class="module-name">Signal</div><p>Track the signals that matter. Filter noise. Surface what is real.</p></div>
-      <div class="module-card"><div class="module-name">Pipeline</div><p>Manage what is in motion. Nothing falls through the gaps.</p></div>
-      <div class="module-card"><div class="module-name">Flow</div><p>Protect high-value time. Structure deep work sessions.</p></div>
-      <div class="module-card"><div class="module-name">Execution</div><p>Turn decisions into actions. Close the loop between thinking and doing.</p></div>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Signal333 · Built in Notion</p>
+        <h1>Operator Stack <span>Run the whole business on one system.</span></h1>
+        <p class="lede">Ten Notion templates that cover the full business process, from the first signal to the finished task. Each module stands alone. Together they form one operating system for how you think, decide and act.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#pricing">Get all ten · £479</a>
+          <a class="btn btn-line" href="#modules">Look inside the modules</a>
+        </div>
+        <ul class="hero-facts"><li>10 modules</li><li>Duplicate into Notion</li><li>No setup</li><li>Instant access</li></ul>
+      </div>
+      <div class="stack" aria-hidden="true">
+        <div class="win">
+          <div class="win-bar"><i></i><i></i><i></i><b>Operator Stack - STRATEGY</b></div>
+          <div class="win-body"><div class="win-title">All Strategies</div>
+            <div class="mini-table"><div><span>Strategy</span><span>Priority</span><span>Progress</span></div><div><span>Launch Notion Template Portfolio</span><span><em class="tag t-yellow" style="font-style:normal">High</em></span><span>80%</span></div></div>
+          </div>
+        </div>
+        <div class="win">
+          <div class="win-bar"><i></i><i></i><i></i><b>Operator Stack - SIGNAL</b></div>
+          <div class="win-body"><div class="win-title">Signals</div>
+            <div class="mini-table"><div><span>Signal</span><span>Status</span><span>Priority</span></div><div><span>Buyer Demand Spike — Premium Listing</span><span><em class="tag t-grey" style="font-style:normal">Monitoring</em></span><span><em class="tag t-red" style="font-style:normal">High</em></span></div></div>
+          </div>
+        </div>
+        <div class="win">
+          <div class="win-bar"><i></i><i></i><i></i><b>Operator Stack - DECISION</b></div>
+          <div class="win-body"><div class="win-title">All Decisions</div>
+            <div class="mini-table"><div><span>Decision</span><span>Status</span><span>Confidence</span></div><div><span>Job offer vs independent work</span><span><em class="tag t-orange" style="font-style:normal">Decided</em></span><span>7</span></div></div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+    <div class="map">
+      <ol class="wrap" aria-label="The five stages and their modules">
+        <li><span class="n">01</span><span class="s">Signal</span><span class="bar c-signal"></span><span class="mods">Signal · Opportunity</span></li>
+        <li><span class="n">02</span><span class="s">Pattern</span><span class="bar c-pattern"></span><span class="mods">Review · Income</span></li>
+        <li><span class="n">03</span><span class="s">Decision</span><span class="bar c-decision"></span><span class="mods">Decision · Flow</span></li>
+        <li><span class="n">04</span><span class="s">Strategy</span><span class="bar c-strategy"></span><span class="mods">Strategy · Pipeline</span></li>
+        <li><span class="n">05</span><span class="s">Execution</span><span class="bar c-execution"></span><span class="mods">Weekly · Execution</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- MODULES -->
+  <section class="section" id="modules">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">The ten modules</p>
+        <h2>Look inside each one.</h2>
+        <p class="lede">Every module is built around one discipline, with its own rules, views and database. Pick a module to see exactly what you get when you duplicate it into Notion.</p>
+      </div>
+      <div class="explorer">
+        <div class="mod-list" id="mod-list" role="tablist" aria-label="Modules"></div>
+        <div class="panel" id="mod-panel" role="tabpanel" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
 
   <!-- HOW IT WORKS -->
-  <div class="section">
-    <div class="section-label">How It Works</div>
-    <h2>Modular by design. Interconnected by use.</h2>
-    <p>Each template works as a standalone tool. Use one module or use all ten — the architecture supports both.</p>
-    <ul>
-      <li>Built in Notion — works with your existing setup</li>
-      <li>Duplicate as template — immediate access on purchase</li>
-      <li>No setup required — structured and ready to use</li>
-      <li>Modular — add modules as your operation grows</li>
-      <li>Interconnected — designed to reference each other naturally</li>
-    </ul>
-    <h3>Who it is for</h3>
-    <p>Founders, operators, and decision-makers who need structure around how they think, prioritise, and execute — without adding complexity.</p>
-  </div>
+  <section class="section" id="how" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How it works</p>
+        <h2>Modular by design. Connected by use.</h2>
+        <p class="lede">Use one module or all ten. Start with the part of the business that hurts most and add modules as your operation grows.</p>
+      </div>
+      <div class="features">
+        <div class="feature"><b>Built in Notion</b><span>Works inside your existing workspace. Nothing new to learn.</span></div>
+        <div class="feature"><b>Duplicate and go</b><span>Duplicate as a template and you have access straight after purchase.</span></div>
+        <div class="feature"><b>No setup</b><span>Every database, view and rule is already structured and ready to use.</span></div>
+        <div class="feature"><b>Worked examples</b><span>Most modules ship with a real example entry, so you can see how they are meant to be used.</span></div>
+        <div class="feature"><b>Add as you grow</b><span>Buy a single module now and add the rest later.</span></div>
+        <div class="feature"><b>Connected</b><span>Designed to reference each other: strategy sets direction, the week sets priorities, execution gets it done.</span></div>
+        <div class="feature for"><b>Who it is for</b><span>Founders, operators and decision-makers who need structure around how they think, prioritise and execute, without adding complexity.</span></div>
+      </div>
+    </div>
+  </section>
 
   <!-- PRICING -->
-  <div class="section">
-    <div class="section-label">Pricing</div>
-    <h2>Individual modules or the full stack.</h2>
-    <p>Each module is available individually. The full bundle includes all ten at a significant saving.</p>
-    <div class="price-block">
-      <div class="price-item"><div class="price-amt">£99</div><div class="price-label">Per Module</div></div>
-      <div class="price-item"><div class="price-amt">£479</div><div class="price-label">Full Bundle</div></div>
-      <div class="price-item"><div class="price-amt">£217</div><div class="price-label">Bundle Saving</div></div>
+  <section class="section pricing-sec" id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Pricing</p>
+        <h2>One module or the full stack.</h2>
+      </div>
+      <div class="price-grid">
+        <div class="p-card single">
+          <span class="p-tag">Single module</span>
+          <h3>Any one module</h3>
+          <div class="p-price">£99<small>each</small></div>
+          <p>Choose the module you need most. Each one works on its own and connects to the rest when you add them.</p>
+          <a class="btn btn-line" href="#modules">Choose a module</a>
+        </div>
+        <a class="p-card full" href="https://opportunity-intelligence.lemonsqueezy.com/checkout/buy/a209e697-b39d-4ff6-b09e-ea3d766371fb" data-checkout="bundle">
+          <div class="stripe" aria-hidden="true"><span class="c-signal"></span><span class="c-pattern"></span><span class="c-decision"></span><span class="c-strategy"></span><span class="c-execution"></span></div>
+          <span class="p-tag">The full stack</span>
+          <h3>All ten modules</h3>
+          <div class="p-price">£479</div>
+          <div class="p-meta"><span>£990 bought separately</span><b>You save £511</b></div>
+          <div class="p-mods">
+            <span><i class="c-signal"></i>Signal</span><span><i class="c-signal"></i>Opportunity</span><span><i class="c-pattern"></i>Review</span><span><i class="c-pattern"></i>Income</span><span><i class="c-decision"></i>Decision</span><span><i class="c-decision"></i>Flow</span><span><i class="c-strategy"></i>Strategy</span><span><i class="c-strategy"></i>Pipeline</span><span><i class="c-execution"></i>Weekly</span><span><i class="c-execution"></i>Execution</span>
+          </div>
+          <span class="btn btn-gold">Get the full stack</span>
+        </a>
+      </div>
+      <div class="checkout-note"><span>Secure checkout by Lemon Squeezy</span><span>Card or PayPal</span><span>Instant access after purchase</span></div>
     </div>
-    <a class="cta-link" href="https://opportunity-intelligence.lemonsqueezy.com/">→ Access the Operator Stack</a>
-  </div>
+  </section>
 
   <!-- ORIGIN -->
-  <div class="section">
-    <div class="section-label">Origin</div>
-    <h2>Built from operational reality.</h2>
-    <p>Operator Stack was not designed theoretically. It was built inside active strategic processes — where decisions carry real consequence and noise is expensive.</p>
-    <p>Each module solves a specific operational problem that emerged from real work: managing signal, forcing decisions, maintaining strategic clarity under pressure.</p>
-    <p>The same framework that underpins the Opportunity Intelligence system — expressed as a practical execution layer.</p>
-    <div class="callout">
-      <p>This is not a productivity system. It is a decision and execution infrastructure for operators who need structure around how they think and act.</p>
+  <section class="section">
+    <div class="wrap origin">
+      <div>
+        <p class="eyebrow">Origin</p>
+        <h2>Built from operational reality.</h2>
+      </div>
+      <div>
+        <p>Operator Stack was not designed in theory. It was built inside active strategic processes, where decisions carry real consequence and noise is expensive.</p>
+        <p>Each module solves a specific problem that came out of real work: managing signal, forcing decisions and holding strategic clarity under pressure. It is the same framework that underpins Opportunity Intelligence, turned into a practical execution layer.</p>
+        <p class="callout">This is not a productivity system. It is decision and execution infrastructure for operators who need structure around how they think and act.</p>
+      </div>
     </div>
+  </section>
+
+  <section class="quote">
+    <blockquote>Control the process <span>or the process controls you.</span></blockquote>
+    <a class="btn btn-gold" href="#pricing">Get the full stack</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>Operator Stack · Part of the Opportunity Intelligence Ecosystem · Signal333</span>
+    <nav aria-label="Ecosystem">
+      <a href="https://alpha333.org/">Alpha333</a>
+      <a href="https://alpha333.org/books.html">The Library</a>
+    </nav>
   </div>
+</footer>
 
-  <div class="quote">
-    "Control the process — or the process controls you."
-  </div>
+<script>
+(function () {
+  var STORE = "https://opportunity-intelligence.lemonsqueezy.com/";
+  /* Lemon Squeezy checkout link for each module and the bundle */
+  var CHECKOUT = {
+    bundle: "https://opportunity-intelligence.lemonsqueezy.com/checkout/buy/a209e697-b39d-4ff6-b09e-ea3d766371fb",
+    signal: "https://opportunity-intelligence.lemonsqueezy.com/checkout/buy/81665250-3eb0-4df0-b321-1d10295e438f",
+    opportunity: "https://opportunity-intelligence.lemonsqueezy.com/checkout/buy/e71c9ede-2ec8-4201-b321-b1ef49808752",
+    review: "https://opportunity-intelligence.lemonsqueezy.com/checkout/buy/88fc3730-5456-4348-ab7f-239b20e17873",
+    income: "https://opportunity-intelligence.lemonsqueezy.com/checkout/buy/bb92558e-e49a-438b-911f-e26f8e822eb5",
+    decision: "https://opportunity-intelligence.lemonsqueezy.com/checkout/buy/db6acef3-88c8-4855-b638-d854998a2dca",
+    flow: "https://opportunity-intelligence.lemonsqueezy.com/checkout/buy/98a37611-46e1-4c00-a728-c678936df2b9",
+    strategy: "https://opportunity-intelligence.lemonsqueezy.com/checkout/buy/d13dd8f4-c4d8-4e38-a600-a1e1d2617b6e",
+    pipeline: "https://opportunity-intelligence.lemonsqueezy.com/checkout/buy/37f4e8b3-daed-4571-acc9-93ae4af7c3ab",
+    weekly: "https://opportunity-intelligence.lemonsqueezy.com/checkout/buy/22b8b626-e3db-4261-b2cd-c5331acfee97",
+    execution: "https://opportunity-intelligence.lemonsqueezy.com/checkout/buy/812166e8-633c-4bd7-9ee4-8158aaa783e6"
+  };
+  var STAGES = [
+    { key: "signal", name: "Signal", color: "var(--signal)", n: "01" },
+    { key: "pattern", name: "Pattern", color: "var(--pattern)", n: "02" },
+    { key: "decision", name: "Decision", color: "var(--decision)", n: "03" },
+    { key: "strategy", name: "Strategy", color: "var(--strategy)", n: "04" },
+    { key: "execution", name: "Execution", color: "var(--execution)", n: "05" }
+  ];
+  function T(text, c) { return { tag: text, c: c }; }
+  function N(text) { return { num: text }; }
+  var MODS = [
+    { id: "signal", stage: 0, name: "Signal", short: "Track the signals that matter",
+      desc: "Define the condition before you act. Track what is real, filter noise, and act only when a trigger is met.",
+      steps: ["Define the condition clearly", "Do nothing until it is met", "Act only when triggered", "Review the outcome"],
+      rule: "If there is no clear trigger, it is not a signal.",
+      views: ["Table", "Monitoring", "Triggered", "Action Required", "4 more"],
+      db: "Signals",
+      cols: ["Signal", "Area", "Signal Type", "Trigger Condition", "Invalid Condition", "Status", "Priority", "Confidence"],
+      rows: [["Buyer Demand Spike — Premium Listing", T("Business", "t-yellow"), T("Opportunity", "t-blue"), "2+ serious offers OR multiple enquiries within 48 hours", "No meaningful engagement after 10–14 days OR only lowball offers", T("Monitoring", "t-grey"), T("High", "t-red"), T("Medium", "t-yellow")]] },
+    { id: "opportunity", stage: 0, name: "Opportunity", short: "Refine raw ideas into outputs",
+      desc: "Capture an idea the moment it appears, then compress and refine it until it is a clear, usable output.",
+      intro: ["Example: how an opportunity is refined from raw idea → to final output."],
+      rule: "Original input → compressed → refined → final output, with a clarity score at the end.",
+      views: ["Table", "In Progress", "Finalised"],
+      db: "All Opportunities",
+      cols: ["Opportunity", "Original Input", "Compressed Version", "Refined Version", "Final Output", "Status", "Clarity Score"],
+      rows: [["Two-model refinement method", "", "", "", "", T("Finalised", "t-yellow"), N("5")]] },
+    { id: "review", stage: 1, name: "Review", short: "Learn from outcomes",
+      desc: "Review what happened, capture it, and turn outcomes into better judgement next time.",
+      intro: ["Use this layer to review outcomes, capture what happened, and improve future judgement.", "The quality of your decisions is not determined at the moment you make them. It is determined by how effectively you learn from what happens next."],
+      rule: "This is where feedback becomes advantage.",
+      views: ["Table", "Open Reviews", "1 more"],
+      db: "All Reviews",
+      cols: ["Review", "Market", "Asset", "Direction", "Entry Price", "Exit Price", "Profit/Loss (£)", "Status"],
+      rows: [["BTC Intraday Breakout Trade", T("Crypto", "t-grey"), "BTC", T("Long", "t-red"), N("70000"), N("71000"), N("800"), T("Closed", "t-grey")]] },
+    { id: "income", stage: 1, name: "Income", short: "See which streams compound",
+      desc: "Track where income is generated and how it changes over time, so you can see what is truly worth scaling.",
+      intro: ["Use this layer to track where income is generated and how it evolves over time.", "Income is not created equally. Some streams compound; others consume attention."],
+      rule: "This is where you see what is truly worth scaling.",
+      views: ["Table", "Active Income", "Building", "1 more"],
+      db: "All Streams",
+      cols: ["Income Source", "Type", "Platform", "Status", "Monthly Value (£)", "Start Date", "Scalability"],
+      rows: [["Digital Products", T("Digital Product", "t-orange"), "LemonSqueezy", T("In Progress", "t-grey"), N("0"), "March 21, 2026", ""]] },
+    { id: "decision", stage: 2, name: "Decision", short: "Force structured decisions",
+      desc: "Capture the context and the options, rate your confidence, decide, and set a date to review the result.",
+      intro: ["Example: how a decision is captured, evaluated, and decided."],
+      rule: "Context → options → confidence → decision → review date.",
+      views: ["Table", "Open", "Review", "Decided"],
+      db: "All Decisions",
+      cols: ["Decision", "Date", "Context", "Options", "Confidence", "Outcome", "Status", "Review Date"],
+      rows: [["Choosing between job offer vs independent work", "March 21, 2026", "", "", N("7"), "", T("Decided", "t-orange"), "April 30, 2026"]] },
+    { id: "flow", stage: 2, name: "Flow", short: "Clarity before movement",
+      desc: "When something has to move, define the real problem, weigh the paths and commit to a direction. Clarity → Direction → Movement.",
+      steps: ["Capture the situation when movement is required", "Define the real problem (remove noise)", "Identify available paths", "Apply constraints: risk, reversibility, alignment", "Commit direction and act"],
+      rule: "This system exists to create clarity before action and make sure movement is controlled, not reactive.",
+      views: ["Active", "Stalled", "In Motion", "High Risk", "Misaligned", "Review Due", "Closed"],
+      db: "Flow",
+      cols: ["Flow", "Clarity Type", "Core Problem", "Paths", "Current Direction", "Reversibility", "Downside Impact", "Flow State"],
+      rows: [] },
+    { id: "strategy", stage: 3, name: "Strategy", short: "Hold your strategic position",
+      desc: "Define direction, not tasks. Each strategy has a clear outcome, a priority and a next step. Execution lives elsewhere.",
+      intro: ["Example: how a strategy is defined, prioritised, and executed over time.", "Focus on clarity of outcome, priority, and next step. Do not overload strategies with operational detail: execution lives elsewhere."],
+      rule: "Strategies define direction, not tasks.",
+      views: ["Table", "Active", "Planning", "2 more"],
+      db: "All Strategies",
+      cols: ["Strategy", "Status", "Priority", "Target Date", "Progress (%)", "Next Step", "Key Actions", "Effort Level"],
+      rows: [["Launch Notion Template Portfolio", T("Active", "t-red"), T("High", "t-yellow"), "April 21, 2026", N("80"), "Upload Template 6", "Build templates, refine structure, upload to LemonSqueezy", T("Medium", "t-orange")]] },
+    { id: "pipeline", stage: 3, name: "Pipeline", short: "See what is really moving",
+      desc: "Every opportunity in one board, staged by reality rather than intention. Focus on what is moving and drop what is not.",
+      steps: ["Add opportunities", "Assign stage based on reality, not intention", "Move them between stages as they progress", "Focus only on what is moving", "Remove or ignore what is not progressing"],
+      rule: "This system exists to show what is actually happening, not what you hope is happening.",
+      views: ["Board", "Active", "High Value", "High Weighted", "Stalled", "Closing"],
+      db: "Pipeline",
+      board: [["Idea", []], ["Defined", []], ["Active", ["Example Opportunity — Website Redesign Project"]], ["Progressing", []], ["Closing", []], ["Complete", []], ["Dropped", []]] },
+    { id: "weekly", stage: 4, name: "Weekly", short: "Run the week with clarity",
+      desc: "Turn strategy into a focused week. One to three meaningful priorities, connected directly to active strategies and execution.",
+      intro: ["Use this weekly layer to translate strategy into focused execution.", "Focus on 1–3 meaningful priorities per week. Weekly planning should connect directly to active strategies and execution."],
+      rule: "Do not overload. Clarity and completion matter more than volume.",
+      views: ["Table", "Current Week", "Completed"],
+      db: "All Weeks",
+      cols: ["Week", "Start Date", "Focus", "P1 (Focus)", "P2", "P3", "Status"],
+      rows: [["Week: Mar 23", "March 21, 2026", "Build and launch templates", "Template 5", "Upload to LemonSqueezy", "Review listings", T("Complete", "t-grey")]] },
+    { id: "execution", stage: 4, name: "Execution", short: "Close the loop on doing",
+      desc: "Only work that is ready enters here. Every active item has an outcome and a next action, and moves from Ready to In Progress to Complete.",
+      steps: ["Only move work here once it is clear enough to execute", "Do not keep too many items active at the same time", "Every active item must have a defined outcome and a next action", "Resolve blocked work quickly or remove it", "Complete before switching whenever possible"],
+      rule: "Work from Ready → In Progress → Complete. Do not skip stages.",
+      views: ["Table", "Active Execution", "Focus", "4 more"],
+      db: "Execution",
+      cols: ["Task", "Status", "Priority", "Outcome", "Next Action", "Area", "Confidence", "Value", "Effort"],
+      rows: [] }
+  ];
 
-  <div class="page-footer">
-    <p>Part of the Opportunity Intelligence Ecosystem</p>
-    <div class="belt-strip" style="border-radius:3px;overflow:hidden">
-      <span style="background:#DCDCDC"></span><span style="background:#EFC84A"></span>
-      <span style="background:#E07E2A"></span><span style="background:#5FA348"></span>
-      <span style="background:#3E76BB"></span><span style="background:#7A5230"></span>
-      <span style="background:#252525"></span>
-    </div>
-  </div>
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  function cell(v, i) {
+    if (v && typeof v === "object" && v.tag) { return "<td><span class=\"tag " + v.c + "\">" + esc(v.tag) + "</span></td>"; }
+    if (v && typeof v === "object" && v.num !== undefined) { return "<td class=\"num\">" + esc(v.num) + "</td>"; }
+    return "<td" + (i === 0 ? " class=\"title\"" : "") + ">" + esc(v || "") + "</td>";
+  }
+  function tableHtml(m) {
+    var h = "<div class=\"db-scroll\"><table class=\"db\"><thead><tr>";
+    for (var i = 0; i < m.cols.length; i++) { h += "<th scope=\"col\">" + esc(m.cols[i]) + "</th>"; }
+    h += "</tr></thead><tbody>";
+    for (var r = 0; r < m.rows.length; r++) {
+      h += "<tr>";
+      for (var c = 0; c < m.cols.length; c++) { h += cell(m.rows[r][c], c); }
+      h += "</tr>";
+    }
+    var blanks = m.rows.length ? 1 : 2;
+    for (var b = 0; b < blanks; b++) {
+      h += "<tr class=\"empty\">";
+      for (var e = 0; e < m.cols.length; e++) { h += "<td></td>"; }
+      h += "</tr>";
+    }
+    return h + "</tbody></table></div><div class=\"newpage\">+ New page</div>";
+  }
+  function boardHtml(m) {
+    var h = "<div class=\"board\">";
+    for (var i = 0; i < m.board.length; i++) {
+      var col = m.board[i];
+      h += "<div class=\"col\"><div class=\"col-h\"><span class=\"tag t-grey\">" + esc(col[0]) + "</span>" + col[1].length + "</div>";
+      for (var k = 0; k < col[1].length; k++) { h += "<div class=\"card\">" + esc(col[1][k]) + "</div>"; }
+      h += "<div class=\"newpage\" style=\"padding:2px 4px\">+ New page</div></div>";
+    }
+    return h + "</div>";
+  }
+  function panelHtml(m) {
+    var st = STAGES[m.stage];
+    var guide = "";
+    if (m.steps) {
+      guide = "<h4>How to use</h4><ol>";
+      for (var i = 0; i < m.steps.length; i++) { guide += "<li>" + esc(m.steps[i]) + "</li>"; }
+      guide += "</ol>";
+    } else {
+      for (var p = 0; p < m.intro.length; p++) { guide += "<p class=\"intro\">" + esc(m.intro[p]) + "</p>"; }
+    }
+    var views = "";
+    for (var v = 0; v < m.views.length; v++) { views += "<span>" + esc(m.views[v]) + "</span>"; }
+    return "<div class=\"panel-head\" style=\"--c:" + st.color + "\">" +
+        "<div><span class=\"stage-tag\" style=\"color:" + st.color + "\">Stage " + st.n + " · " + st.name + "</span>" +
+        "<h3>" + esc(m.name) + "</h3><p>" + esc(m.desc) + "</p></div>" +
+        "<div class=\"panel-buy\"><span class=\"price\">£99</span><a class=\"btn btn-gold\" href=\"" + CHECKOUT[m.id] + "\">Buy " + esc(m.name) + "</a></div>" +
+      "</div>" +
+      "<div class=\"win\" style=\"--c:" + st.color + "\">" +
+        "<div class=\"win-bar\"><i></i><i></i><i></i><b>Operator Stack - " + esc(m.name.toUpperCase()) + "</b></div>" +
+        "<div class=\"win-body\">" +
+          "<div class=\"win-title\">Operator Stack - " + esc(m.name.toUpperCase()) + "</div>" +
+          "<p class=\"brand-line\">Operator Stack™<br>Built for operators.</p>" +
+          "<div class=\"how\"><div>" + guide + "</div><p class=\"rule\">" + esc(m.rule) + "</p></div>" +
+          "<div class=\"db-title\">" + esc(m.db) + "</div>" +
+          "<div class=\"views\">" + views + "</div>" +
+          (m.board ? boardHtml(m) : tableHtml(m)) +
+        "</div>" +
+      "</div>" +
+      "<p class=\"panel-note\">Recreated from the live template. Scroll the table sideways to see every column.</p>";
+  }
 
-</div>
+  var list = document.getElementById("mod-list");
+  var panel = document.getElementById("mod-panel");
+  var html = "";
+  for (var s = 0; s < STAGES.length; s++) {
+    html += "<div class=\"mod-group\"><div class=\"mod-group-label\" style=\"color:" + STAGES[s].color + "\"><i style=\"background:" + STAGES[s].color + "\"></i>" + STAGES[s].n + " " + STAGES[s].name + "</div>";
+    for (var m = 0; m < MODS.length; m++) {
+      if (MODS[m].stage === s) {
+        html += "<button class=\"mod-btn\" role=\"tab\" id=\"tab-" + MODS[m].id + "\" aria-controls=\"mod-panel\" aria-selected=\"false\" data-i=\"" + m + "\" style=\"--c:" + STAGES[s].color + "\">" + esc(MODS[m].name) + "<span>" + esc(MODS[m].short) + "</span></button>";
+      }
+    }
+    html += "</div>";
+  }
+  list.innerHTML = html;
+  var btns = list.querySelectorAll(".mod-btn");
+  function show(i, focus) {
+    for (var b = 0; b < btns.length; b++) {
+      var on = parseInt(btns[b].getAttribute("data-i"), 10) === i;
+      btns[b].setAttribute("aria-selected", on ? "true" : "false");
+      btns[b].tabIndex = on ? 0 : -1;
+      if (on && focus) { btns[b].focus(); }
+    }
+    panel.setAttribute("aria-labelledby", "tab-" + MODS[i].id);
+    panel.innerHTML = panelHtml(MODS[i]);
+  }
+  function order() { var o = []; for (var b = 0; b < btns.length; b++) { o.push(parseInt(btns[b].getAttribute("data-i"), 10)); } return o; }
+  var ORDER = order();
+  for (var k = 0; k < btns.length; k++) {
+    btns[k].addEventListener("click", function () { show(parseInt(this.getAttribute("data-i"), 10), false); });
+    btns[k].addEventListener("keydown", function (e) {
+      var pos = ORDER.indexOf(parseInt(this.getAttribute("data-i"), 10));
+      var next = -1;
+      if (e.key === "ArrowDown" || e.key === "ArrowRight") { next = ORDER[(pos + 1) % ORDER.length]; }
+      if (e.key === "ArrowUp" || e.key === "ArrowLeft") { next = ORDER[(pos + ORDER.length - 1) % ORDER.length]; }
+      if (next > -1) { e.preventDefault(); show(next, true); }
+    });
+  }
+  show(0, false);
 
-<div class="belt-strip">
-  <span style="background:#DCDCDC"></span><span style="background:#EFC84A"></span>
-  <span style="background:#E07E2A"></span><span style="background:#5FA348"></span>
-  <span style="background:#3E76BB"></span><span style="background:#7A5230"></span>
-  <span style="background:#252525"></span>
-</div>
-
+  var bundle = document.querySelector("[data-checkout=\"bundle\"]");
+  if (bundle) { bundle.setAttribute("href", CHECKOUT.bundle); }
+})();
+</script>
 
 <script data-goatcounter="https://signal333.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
